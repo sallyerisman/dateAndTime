@@ -11,6 +11,8 @@ const hour = document.querySelector('#hour');
 const minute = document.querySelector('#minute');
 const second = document.querySelector('#second');
 
+const separator = document.querySelectorAll('.separator');
+
 const updateClock = () => {
     // dateEl.innerHTML = moment().format('YYYY-MM-DD');
     weekday.innerHTML = moment().format('dddd');
@@ -21,10 +23,12 @@ const updateClock = () => {
     // timeEl.innerHTML = moment().format('HH:mm:ss');
     hour.innerHTML = moment().format('HH');
     minute.innerHTML = moment().format('mm');
-    second.innerHTML = moment().format('ss');
-  
-}
-
+    second.innerHTML = moment().format('ss'); 
+    
+    separator.forEach(function(sep) {
+        sep.classList.toggle('hidden');
+    })
+};
 
 updateClock();
 const secondTicker = setInterval(updateClock, 1000);
